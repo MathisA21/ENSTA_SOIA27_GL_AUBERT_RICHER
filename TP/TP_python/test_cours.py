@@ -1,4 +1,4 @@
-from cours import Cours
+from TP.TP_python.cours import Cours
 
 def test_cours():
     cours = Cours("Conception Logiciel", "M. Ba")
