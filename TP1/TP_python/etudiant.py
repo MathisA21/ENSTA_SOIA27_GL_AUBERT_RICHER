@@ -1,4 +1,4 @@
-from TP.TP_python.personne import Personne
+from personne import Personne
 
 class Etudiant(Personne):
 

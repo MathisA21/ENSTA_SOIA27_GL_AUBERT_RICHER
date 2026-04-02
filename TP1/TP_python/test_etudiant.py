@@ -1,4 +1,4 @@
-from TP.TP_python.etudiant import Etudiant
+from etudiant import Etudiant
 
 def test_etudiant():
     etudiant = Etudiant("Mathis", 22, "1",19.5)
