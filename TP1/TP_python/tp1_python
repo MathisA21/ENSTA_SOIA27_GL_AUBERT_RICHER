@@ -1,0 +1,36 @@
+import numpy as np
+
+class Personne:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+class Etudiant(Personne):
+    def __init__(self, nom, age, numero):
+        super().__init__(nom, age)
+        self.numero = numero
+        self.cours = []
+        self.moyenne = 10.0
+
+class Cours:
+    def __init__(self, nom, professeur):
+        self.nom = nom
+        self.professeur = professeur
+
+
+if __name__ == "__main__":
+    Mathis = Etudiant("Mathis", 21, "1")
+    Erwyn = Etudiant("Erwyn", 24, "2")
+
+    Mathis.cours.append(Cours("Mathématiques", "M. A"))
+    Mathis.cours.append(Cours("Physique", "M. B"))
+    Erwyn.cours.append(Cours("Informatique", "M. C"))
+    Erwyn.cours.append(Cours("Chimie", "M. D"))
+
+    print(f"{Mathis.nom} a {Mathis.age} ans et suit les cours suivants :")
+    for cours in Mathis.cours:
+        print(f"- {cours.nom} enseigné par {cours.professeur}")
+        
+    print(f"\n{Erwyn.nom} a {Erwyn.age} ans et suit les cours suivants :")
+    for cours in Erwyn.cours:
+        print(f"- {cours.nom} enseigné par {cours.professeur}")
