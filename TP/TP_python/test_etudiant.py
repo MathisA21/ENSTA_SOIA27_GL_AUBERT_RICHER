@@ -8,3 +8,7 @@ def test_etudiant():
     assert etudiant.cours == []
     assert etudiant.moyenne == 19.5
 
+    etudiant2 = Etudiant("Erwyn", 24, "2", 20.5)
+    assert etudiant2.moyenne == 0
+    etudiant2.modifier_moyenne(15.0)
+    assert etudiant2.moyenne == 15.0

@@ -33,3 +33,5 @@ if __name__ == "__main__":
     
     for etudiant in etudiants:
         afficher_details(etudiant)
+    
+    Mathis.modifier_moyenne(25.0)
