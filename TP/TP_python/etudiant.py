@@ -4,16 +4,18 @@ class Etudiant(Personne):
 
     def __init__(self, nom, age, numero, moyenne):
         super().__init__(nom, age)
-        self.__numero = numero
-        self.__cours = []
+        self.numero = numero
+        self.cours = []
         self.__moyenne = moyenne if 0 <= moyenne <= 20 else 0
-    
+        self.__nom = nom
+        self.__age = age
+
     @property
-    def numero(self):
-        return self.__numero
+    def get_nom(self):
+        return self.__nom
     @property
-    def cours(self):
-        return self.__cours
+    def get_age(self):
+        return self.__age
     @property
     def moyenne(self):
         return self.__moyenne
@@ -24,3 +26,11 @@ class Etudiant(Personne):
         else:
             print("Moyenne invalide. Elle doit être entre 0 et 20.")
 
+
+    def afficher_details(self):
+        super().afficher_details()
+        print(f"Moyenne: {self.moyenne}")
+
+    def ajouter_cours(self, cours):
+        self.cours.append(cours)
+        
