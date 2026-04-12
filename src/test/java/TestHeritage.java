@@ -11,7 +11,7 @@ public class TestHeritage {
 
     @Test
     public void testHeritageEtudiant() {
-        Etudiant e = new Etudiant("Clotilde", 22);
+        Etudiant e = new Etudiant("Clotilde", 22, "ID54321", 15.0);
         assertTrue(e instanceof Personne, "L'étudiant doit hériter de la classe Personne");
         assertEquals("Clotilde", e.getNom(), "Le nom doit être hérité via super()");
         assertEquals(22, e.getAge(), "L'âge doit être hérité via super()");
