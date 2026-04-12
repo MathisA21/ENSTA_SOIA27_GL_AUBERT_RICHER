@@ -48,7 +48,7 @@ if __name__ == "__main__":
         p.afficher_details()
         print("\n")
     
-    #Mathis.modifier_moyenne(25.0)
+
 
 
     

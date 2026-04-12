@@ -4,6 +4,9 @@ class Personne:
         self.nom = nom
         self.age = age
 
+    def __str__(self):
+        return f"Nom: {self.nom}, Age: {self.age}"
+
     @property
     def nom(self):
         return self.__nom

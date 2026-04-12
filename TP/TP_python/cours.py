@@ -5,4 +5,4 @@ class Cours:
         self.professeur = professeur
 
     def __str__(self):
-        return f"Cours: {self.nom_cours}, Professeur: {self.professeur}"
+        return f"Nom du cours: {self.nom_cours}, Professeur: {self.professeur}"
