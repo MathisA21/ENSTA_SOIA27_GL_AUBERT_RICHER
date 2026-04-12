@@ -17,11 +17,11 @@ if __name__ == "__main__":
 
     #Professeurs (L'âge est totalement arbitraire, je m'excuse par avance...)
     enseignants = []
-    BA = Enseignant("M. BA", 40, 3000)
-    QUIDU = Enseignant("Mme QUIDU", 40, 3200)
-    MARCOS = Enseignant("Mme MARCOS", 27, 3500)
-    LAGADEC = Enseignant("M. LAGADEC", 44, 2800)
-    TOUMI = Enseignant("M. TOUMI", 42, 3300)
+    BA = Enseignant("M. BA", 40, 3000, "Conception Logiciel")
+    QUIDU = Enseignant("Mme QUIDU", 40, 3200, "TDE")
+    MARCOS = Enseignant("Mme MARCOS", 27, 3500, "Calcul variationnel")
+    LAGADEC = Enseignant("M. LAGADEC", 44, 2800, "Langage C")
+    TOUMI = Enseignant("M. TOUMI", 42, 3300, "Machine Learning")
     enseignants.append(BA)
     enseignants.append(QUIDU)
     enseignants.append(MARCOS)
@@ -44,18 +44,11 @@ if __name__ == "__main__":
         for cours in liste_cours:
             etudiant.ajouter_cours(cours)
     
-    def afficher_details(etudiant):
-        print(f"Etudiant: {etudiant.nom}, Age: {etudiant.age}, Numero: {etudiant.numero}, Moyenne: {etudiant.moyenne}")
-        print("Cours suivis:")
-        for cours in etudiant.cours:
-            print(f" - {cours.nom_cours} par {cours.professeur}")
+    for p in personnes:
+        p.afficher_details()
         print("\n")
-        return
     
-    for etudiant in etudiants:
-        afficher_details(etudiant)
-    
-    Mathis.modifier_moyenne(25.0)
+    #Mathis.modifier_moyenne(25.0)
 
 
     
