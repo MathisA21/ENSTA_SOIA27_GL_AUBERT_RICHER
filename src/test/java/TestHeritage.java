@@ -13,7 +13,7 @@ public class TestHeritage {
     public void testHeritageEtudiant() {
         Etudiant e = new Etudiant("Clotilde", 22);
         assertTrue(e instanceof Personne, "L'étudiant doit hériter de la classe Personne");
-        assertEquals("Clotilde", e.nom, "Le nom doit être hérité via super()");
-        assertEquals(22, e.age, "L'âge doit être hérité via super()");
+        assertEquals("Clotilde", e.getNom(), "Le nom doit être hérité via super()");
+        assertEquals(22, e.getAge(), "L'âge doit être hérité via super()");
     }
 }

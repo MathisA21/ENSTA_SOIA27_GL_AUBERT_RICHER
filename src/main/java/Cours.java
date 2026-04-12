@@ -6,4 +6,9 @@ public class Cours {
         this.nomCours = nomCours;
         this.professeurResponsable = professeur;
     }
+
+    @Override
+    public String toString() {
+        return nomCours + " (Prof : "+professeurResponsable+")";
+    }
 }
