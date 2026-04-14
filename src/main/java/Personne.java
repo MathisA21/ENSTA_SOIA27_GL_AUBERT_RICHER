@@ -1,5 +1,5 @@
 public class Personne {
-    protected String nom;
+    private String nom;
     private int age;
 
     public Personne(String nom, int age) {
@@ -7,29 +7,25 @@ public class Personne {
         this.setAge(age);
     }
 
-    public String getNom() {
-        return nom;
-    }
-
     public void setNom(String nom) {
-        if (nom == null || nom.isEmpty()) {
-            throw new IllegalArgumentException("Le nom ne peut pas être vide");
-        }
+        if (nom == null || nom.trim().isEmpty()) throw new IllegalArgumentException("Nom vide interdit");
         this.nom = nom;
     }
 
+    public void setAge(int age) {
+        if (age < 0 || age > 100) throw new IllegalArgumentException("Âge invalide");
+        this.age = age;
+    }
+
+    public String afficherDetails() {
+        return "Nom: " + nom + ", Age: " + age + " ans";
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
+
     public int getAge() {
-        return age;
-    }
-
-    public void setAge(int v) {
-        if (v < 0 || v > 100) {
-            throw new IllegalArgumentException("L'âge doit être entre 0 et 100");
-        }
-        this.age = v;
-    }
-
-    public String toString() {
-        return "Nom: " + nom + ", Age: " + age;
+        return this.age;
     }
 }

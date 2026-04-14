@@ -1,30 +1,16 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Démarrage de l'application de Gestion Étudiante");
+        List<Personne> ecole = Arrays.asList(
+            new Etudiant("Alice", 21),
+            new Enseignant("Dr. Aubert", 42, "IA & Big Data", 4000)
+        );
 
-        // Création d'un étudiant
-        Etudiant alice = new Etudiant("Alice", 21, "ID12345", 16.5);
-        System.out.println("Étudiant créé : " + alice.toString());
-
-        // Création des cours
-        Cours coursJava = new Cours("Architecture Logicielle Java", "M. MAZO");
-        Cours coursPython = new Cours("Python Avancé", "M. CAZAU");
-
-        // Ajout des cours à l'étudiant
-        alice.ajouterCours(coursJava);
-        alice.ajouterCours(coursPython);
-
-        // TP 2 : Test de l'encapsulation
-        System.out.println("\nTentative : moyenne = 25.0");
-        try {
-            alice.setMoyenne(25.0);
-        } catch (IllegalArgumentException e) {
-            System.err.println("Succès du test : " + e.getMessage());
+        System.out.println("--- Liste de l'école (Liaison Dynamique) ---");
+        for (Personne p : ecole) {
+            System.out.println(p.afficherDetails());
         }
-        
     }
 }
-
-
-
-
