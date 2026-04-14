@@ -41,7 +41,7 @@ public class Etudiant extends Personne {
 
     @Override
     public String afficherDetails() {
-        return super.afficherDetails() + " | Étudiant [N°: " + numEtudiant + ", Moyenne: " + moyenne + "/20]";
+        return super.afficherDetails() + " | Étudiant [N°: " + numEtudiant + ", Moyenne: " + moyenne + "/20]" + " | Cours suivis: " + listeCours;
     }
 
     @Override

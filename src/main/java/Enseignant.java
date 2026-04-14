@@ -10,6 +10,6 @@ public class Enseignant extends Personne {
 
     @Override
     public String afficherDetails() {
-        return super.afficherDetails() + " | Enseignant en " + matiere + " (Salaire: " + salaire + "€)";
+        return super.afficherDetails() + " | Enseignant en " + matiere + " (Salaire: " + salaire + "euros)";
     }
 }
