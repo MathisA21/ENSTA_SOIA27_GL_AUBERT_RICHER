@@ -15,7 +15,7 @@ if __name__ == "__main__":
     etudiants.append(Gregoire)
     etudiants.append(Owen)
 
-    #Professeurs (L'âge est totalement arbitraire, je m'excuse par avance...)
+    #Professeurs (L'âge est totalement arbitraire, je vous présente mes excuses par avance...)
     enseignants = []
     BA = Enseignant("M. BA", 40, 3000, "Conception Logiciel")
     QUIDU = Enseignant("Mme QUIDU", 40, 3200, "TDE")
