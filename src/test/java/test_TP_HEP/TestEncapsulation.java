@@ -1,5 +1,10 @@
+package test_TP_HEP;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import TP_HEP.Etudiant;
+import TP_HEP.Personne;
 
 public class TestEncapsulation {
 
