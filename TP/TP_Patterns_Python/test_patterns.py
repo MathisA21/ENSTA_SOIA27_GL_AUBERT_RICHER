@@ -1,6 +1,8 @@
 from scolarite_manager import ScolariteManager
 from personne_factory import PersonneFactory
-from base_classes import Etudiant, Enseignant
+from base_classes import Etudiant, Enseignant, Cours
+from decorator import EtudiantBoursier, EtudiantDelegue
+from adapter import LegacyCoursSystem, CoursAdapter
 import pytest
 
 def test_singleton_instance_unique():
@@ -37,3 +39,34 @@ def test_factory_creation_enseignant():
 def test_factory_type_inconnu():
     with pytest.raises(ValueError):
         PersonneFactory.creer_personne("directeur", nom="Gruno Bruselle", age=50)
+
+
+def test_decorator_etudiant_boursier():
+    etu = Etudiant("Aurelien", 22, "C789", 14.0)
+    
+    aurelien_boursier = EtudiantBoursier(etu)
+    
+    # Assert
+    assert aurelien_boursier.nom == "Aurelien"
+    assert aurelien_boursier.moyenne == 14.0
+    assert "[BOURSIER]" in str(aurelien_boursier)
+
+def test_decorator_etudiant_cumul_statuts():
+    etu = Etudiant("Mathis", 22, "D012", 16.0)
+    
+    mathis_boursier = EtudiantBoursier(etu)
+    mathis_complet = EtudiantDelegue(mathis_boursier)
+    
+    affichage = str(mathis_complet)
+    assert "[BOURSIER]" in affichage
+    assert "[DÉLÉGUÉ]" in affichage
+    assert mathis_complet.nom == "Mathis"
+
+def test_adapter_conversion_cours():
+    vieux_systeme = LegacyCoursSystem()
+    adaptateur = CoursAdapter(vieux_systeme)
+    
+    cours = adaptateur.obtenir_cours()
+    assert isinstance(cours, Cours)
+    assert cours.nom_cours == "Génie Logiciel"
+    assert cours.professeur == "M. Aubert"
