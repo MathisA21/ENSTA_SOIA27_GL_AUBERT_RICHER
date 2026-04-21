@@ -8,13 +8,10 @@ class ScolariteManager:
         return cls._instance
 
     def ajouter_etudiant(self, etudiant):
-        """Ajoute un étudiant à la base de données globale."""
         if etudiant not in self.etudiants:
             self.etudiants.append(etudiant)
+            etudiant.abonner(self)
             print(f"[Scolarité] L'étudiant {etudiant.nom} a été inscrit.")
 
-    def afficher_etudiants(self):
-        """Affiche tous les étudiants inscrits."""
-        print(f"\n--- Liste globale de la scolarité ({len(self.etudiants)} inscrits) ---")
-        for etudiant in self.etudiants:
-            print(f"- {etudiant.nom} (Numéro: {etudiant.numero})")
+    def update(self, etudiant):
+        print(f" [ALERTE SCOLARITÉ] L'étudiant {etudiant.nom} a reçu une nouvelle note ! Sa moyenne est maintenant de {etudiant.moyenne:.2f}/20")

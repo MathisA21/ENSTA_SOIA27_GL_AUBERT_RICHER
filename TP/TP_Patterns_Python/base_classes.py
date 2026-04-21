@@ -60,6 +60,8 @@ class Etudiant(Personne):
         self.numero = numero
         self.list_cours = []
         self.moyenne = moyenne
+        self._notes = []
+        self._observers = []
 
     @property
     def moyenne(self):
@@ -82,3 +84,19 @@ class Etudiant(Personne):
 
     def ajouter_cours(self, cours):
         self.list_cours.append(cours)
+
+    def abonner(self, observer):
+        """Ajoute un abonné à la liste d'écoute."""
+        if observer not in self._observers:
+            self._observers.append(observer)
+
+    def ajouter_note(self, note):
+        """Ajoute une note, recalcule la moyenne, et prévient les abonnés."""
+        self._notes.append(note)
+        self.moyenne = sum(self._notes) / len(self._notes)
+        self._notifier_observers()
+
+    def _notifier_observers(self):
+        """Boucle à travers les abonnés et les informe du changement."""
+        for obs in self._observers:
+            obs.update(self)

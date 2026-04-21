@@ -92,3 +92,20 @@ def test_strategy_tri_etudiants():
     assert resultat_moyenne[0].nom == "Lena"
     assert resultat_moyenne[1].nom == "Kim"
     assert resultat_moyenne[2].nom == "Elise"
+
+def test_observer_notification_note():
+
+    manager = ScolariteManager()
+    manager.etudiants.clear()
+    
+    etu = Etudiant("Simon", 23, "L999", 0.0)
+    
+    manager.ajouter_etudiant(etu)
+    
+    assert manager in etu._observers
+    
+    etu.ajouter_note(10.0)
+    assert etu.moyenne == 10.0
+    
+    etu.ajouter_note(20.0)
+    assert etu.moyenne == 15.0
