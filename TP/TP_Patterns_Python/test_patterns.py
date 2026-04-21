@@ -3,6 +3,7 @@ from personne_factory import PersonneFactory
 from base_classes import Etudiant, Enseignant, Cours
 from decorator import EtudiantBoursier, EtudiantDelegue
 from adapter import LegacyCoursSystem, CoursAdapter
+from strategy import TrieurEtudiants, TriParNom, TriParMoyenne
 import pytest
 
 def test_singleton_instance_unique():
@@ -70,3 +71,24 @@ def test_adapter_conversion_cours():
     assert isinstance(cours, Cours)
     assert cours.nom_cours == "Génie Logiciel"
     assert cours.professeur == "M. Aubert"
+
+def test_strategy_tri_etudiants():
+    etu1 = Etudiant("Elise", 22, "E1", 12.0)
+    etu2 = Etudiant("Lena", 23, "L1", 18.0)
+    etu3 = Etudiant("Kim", 22, "K1", 15.0)
+    
+    liste = [etu1, etu2, etu3]
+    
+    trieur = TrieurEtudiants(TriParNom())
+    resultat_nom = trieur.trier_etudiants(liste)
+    
+    assert resultat_nom[0].nom == "Elise"
+    assert resultat_nom[1].nom == "Kim"
+    assert resultat_nom[2].nom == "Lena"
+    
+    trieur.set_strategy(TriParMoyenne())
+    resultat_moyenne = trieur.trier_etudiants(liste)
+    
+    assert resultat_moyenne[0].nom == "Lena"
+    assert resultat_moyenne[1].nom == "Kim"
+    assert resultat_moyenne[2].nom == "Elise"
