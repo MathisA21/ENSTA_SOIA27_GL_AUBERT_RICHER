@@ -1,6 +1,6 @@
 package TP_Patterns;
 
-//Adapter les cours 
+//Récupère le ou les cours sur un format de données en String, puis les convertit en objets Cours utilisables
 public class LegacyCours {
     public static Cours adapterLegacyCours(String LegacyData) {
         String[] data = LegacyData.split(";");
@@ -14,7 +14,7 @@ public class LegacyCours {
         return new Cours(nomCours, nomProf);
     }
     else {
-        throw new IllegalArgumentException("Format de données invalide pour LegacyCours");
+        throw new IllegalArgumentException("Format de données invalide");
     }
 }
 }

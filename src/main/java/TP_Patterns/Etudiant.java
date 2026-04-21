@@ -20,12 +20,29 @@ public class Etudiant extends Personne {
         this.listeCours = new ArrayList<>();
     }
 
+    //QUESTION 6
+    private List<Observer> observateurs = new ArrayList<>();
+
+    public void ajouterObservateur(Observer o) {
+        if (!observateurs.contains(o)) {
+            observateurs.add(o);
+        }
+    }
+
+    private void notifierObservateurs() {
+        for (Observer o : observateurs) {
+            o.update(this);
+        }
+    }
+
     public void setMoyenne(double moyenne) {
         if (moyenne < 0 || moyenne > 20) {
-            throw new IllegalArgumentException("La moyenne doit être comprise entre 0 et 20 ");
+            throw new IllegalArgumentException("La moyenne doit être comprise entre 0 et 20");
         }
         this.moyenne = moyenne;
+        notifierObservateurs(); //on notifie les observateurs
     }
+
 
     public double getMoyenne() {
         return moyenne;

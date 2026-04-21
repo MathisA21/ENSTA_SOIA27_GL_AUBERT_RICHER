@@ -20,5 +20,16 @@ public class main {
         scolariteManager.ajouterEtudiant((Etudiant) etudiant1);
         scolariteManager.ajouterEtudiant((Etudiant) etudiant2);
         System.out.println(scolariteManager.afficherEtudiants());
+
+        // Utilisation du Decorateur
+        Etudiant boursier = new EtudiantBoursier((Etudiant) etudiant1);
+        System.out.println(boursier.afficherDetails());
+        Etudiant delegue = new EtudiantDelegue((Etudiant) etudiant2);
+        System.out.println(delegue.afficherDetails());
+
+        // Utilisation de l'adaptateur
+        String legacyData = "Sport; M. MAJOREL";
+        Cours cours2 = LegacyCours.adapterLegacyCours(legacyData);
+        System.out.println(cours2);
     }
 }
