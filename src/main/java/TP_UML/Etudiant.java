@@ -8,11 +8,6 @@ public class Etudiant extends Personne {
     private double moyenne;
     private List<Cours> listeCours;
 
-    public Etudiant(String nom, int age) {
-        super(nom, age);
-        this.listeCours = new ArrayList<>();
-    }
-
     public Etudiant(String nom, int age, String numEtudiant, double moyenne) {
         super(nom, age);
         this.numEtudiant = numEtudiant;
