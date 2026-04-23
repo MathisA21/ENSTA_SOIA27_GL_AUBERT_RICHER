@@ -24,10 +24,10 @@ def test_singleton_partage_donnees():
 
 def test_factory_creation_etudiant():
     etu = PersonneFactory.creer_personne(
-        "etudiant", nom="Bob", age=22, numero="E456", moyenne=12.5
+        "etudiant", nom="Owen", age=22, numero="E456", moyenne=12.5
     )
     assert isinstance(etu, Etudiant)
-    assert etu.nom == "Bob"
+    assert etu.nom == "Owen"
     assert etu.moyenne == 12.5
 
 def test_factory_creation_enseignant():
@@ -39,7 +39,7 @@ def test_factory_creation_enseignant():
 
 def test_factory_type_inconnu():
     with pytest.raises(ValueError):
-        PersonneFactory.creer_personne("directeur", nom="Gruno Bruselle", age=50)
+        PersonneFactory.creer_personne("directeur", nom="Raymond Levet", age=50)
 
 
 def test_decorator_etudiant_boursier():
